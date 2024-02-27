@@ -43,7 +43,7 @@ const ToDoSlice = createSlice({
                 state.tasks = action.payload;
             })
             .addCase(addTask.fulfilled, (state, action) => {
-                state.tasks.push(action.payload);
+                state.tasks.unshift(action.payload);
             })
             .addCase(toggleTaskStatus.fulfilled, (state, action) => {
                 const index = state.tasks.findIndex(task => task.id === action.payload.id);

@@ -20,14 +20,15 @@ const TaskItem: React.FC<TaskItemProps> = ({ task }) => {
     };
 
     return (
-        <div>
+        <div className='d-flex align-items-center mt-3 border border-1 p-2'>
             <input
                 type="checkbox"
                 checked={task.done}
                 onChange={handleStatusChange}
+                className='ms-2 me-2'
             />
-            {task.content}
-            <button onClick={handleDelete}>Delete</button>
+            <p className='m-0 fs-5'>{task.content}</p>
+            <button className='btn btn-danger ms-auto' onClick={handleDelete}>Delete</button>
         </div>
     );
 };

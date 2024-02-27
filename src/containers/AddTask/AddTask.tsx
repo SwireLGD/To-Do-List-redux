@@ -16,14 +16,15 @@ const AddTaskForm: React.FC = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='d-flex justify-content-center mt-3' onSubmit={handleSubmit}>
             <input
                 type="text"
                 placeholder="New task"
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
+                className='w-75'
             />
-            <button type="submit">Add</button>
+            <button type="submit" className='btn btn-primary rounded-0'>Add</button>
         </form>
     );
 };

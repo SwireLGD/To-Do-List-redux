@@ -5,10 +5,10 @@ const App = () => {
 
   return (
     <>
-      <header>
+      <header className="container-fluid bg-primary text-light">
         <h1>To-Do List</h1>
       </header>
-      <main>
+      <main className="container-fluid">
       <AddTaskForm />
       <TasksList />
       </main>
@@ -16,4 +16,4 @@ const App = () => {
   )
 };
 
-export default App;
+export default App; 
