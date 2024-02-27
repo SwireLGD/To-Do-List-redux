@@ -4,10 +4,12 @@ import { Task } from '../../types';
 
 interface TaskState {
     tasks: Task[];
+    isLoading: boolean;
 }
 
 const initialState: TaskState = {
-    tasks: []
+    tasks: [],
+    isLoading: false
 };
 
 export const fetchTasks = createAsyncThunk('tasks/fetchTasks', async () => {
@@ -39,8 +41,15 @@ const ToDoSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(fetchTasks.pending, (state) => {
+                state.isLoading = true;
+            })
             .addCase(fetchTasks.fulfilled, (state, action) => {
                 state.tasks = action.payload;
+                state.isLoading = false;
+            })
+            .addCase(fetchTasks.rejected, (state) => {
+                state.isLoading = false;
             })
             .addCase(addTask.fulfilled, (state, action) => {
                 state.tasks.unshift(action.payload);
